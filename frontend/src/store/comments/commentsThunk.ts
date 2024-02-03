@@ -9,7 +9,7 @@ export const createComment = createAsyncThunk<void, NewComment>(
   },
 );
 
-export const getComments = createAsyncThunk<Comment[], number | null>(
+export const getComments = createAsyncThunk<Comment[], number | undefined>(
   'comments/get',
   async (id) => {
     let comments: Comment[] = [];

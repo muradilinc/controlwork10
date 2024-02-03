@@ -22,6 +22,19 @@ export const getNews = createAsyncThunk<News[]>(
   },
 );
 
+export const getSingleNews = createAsyncThunk<News, number>(
+  'news/getSingleNews',
+  async (id) => {
+    const response = await axiosApi.get<News[]>(`/news/${id}`);
+
+    if (!response || response.data.length === 0) {
+      throw new Error('not found!');
+    }
+
+    return response.data[0];
+  },
+);
+
 export const deleteNews = createAsyncThunk<void, number>(
   'news/deleteNews',
   async (id) => {
