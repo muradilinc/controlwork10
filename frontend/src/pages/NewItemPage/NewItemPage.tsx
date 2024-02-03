@@ -13,7 +13,7 @@ import CommentsItem from '../../components/commentsItem/commentsItem';
 import { NewCommentState } from '../../types';
 
 const NewItemPage = () => {
-  const {id} = useParams() as {id: string};
+  const {id} = useParams() as { id: string };
   const dispatch = useAppDispatch();
   const newsItem = useAppSelector(selectSingleNews);
   const comments = useAppSelector(selectComments);
@@ -55,7 +55,7 @@ const NewItemPage = () => {
 
   return (
     <Box sx={{
-      margin: "30px 0",
+      margin: '30px 0',
       display: 'flex',
       flexDirection: 'column',
       gap: '10px 0',
@@ -80,9 +80,12 @@ const NewItemPage = () => {
           gap: '15px 0',
         }}>
           {
-            comments.map(comment =>
-              <CommentsItem key={comment.id} comment={comment} idItem={parseInt(id)}/>
-            )
+            comments.length > 0 ?
+              comments.map(comment =>
+                <CommentsItem key={comment.id} comment={comment} idItem={parseInt(id)}/>
+              )
+              :
+              <Typography variant="h4">no comments</Typography>
           }
         </Box>
         <Box>
@@ -95,11 +98,13 @@ const NewItemPage = () => {
             }}>
               <Box>
                 <Typography>Name</Typography>
-                <TextField sx={{width: '100%'}} name="author" value={comment.author} onChange={changeInput}  type="text"/>
+                <TextField sx={{width: '100%'}} name="author" value={comment.author} onChange={changeInput}
+                           type="text"/>
               </Box>
               <Box>
                 <Typography>Comment</Typography>
-                <TextField required sx={{width: '100%'}} multiline rows={4} name="text" value={comment.text} onChange={changeInput} type="text"/>
+                <TextField required sx={{width: '100%'}} multiline rows={4} name="text" value={comment.text}
+                           onChange={changeInput} type="text"/>
               </Box>
               <Button type="submit" variant="outlined">Add</Button>
             </Box>

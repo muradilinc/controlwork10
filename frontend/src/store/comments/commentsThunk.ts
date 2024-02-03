@@ -15,7 +15,7 @@ export const getComments = createAsyncThunk<Comment[], number | undefined>(
     let comments: Comment[] = [];
 
     if (id) {
-      const response = await axiosApi.get<Comment[]>(`/comments?news_id=${1}`);
+      const response = await axiosApi.get<Comment[]>(`/comments?news_id=${id}`);
 
       if (!response) {
         comments = [];
