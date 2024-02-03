@@ -99,7 +99,7 @@ const NewItemPage = () => {
               </Box>
               <Box>
                 <Typography>Comment</Typography>
-                <TextField sx={{width: '100%'}} multiline rows={4} name="text" value={comment.text} onChange={changeInput} type="text"/>
+                <TextField required sx={{width: '100%'}} multiline rows={4} name="text" value={comment.text} onChange={changeInput} type="text"/>
               </Box>
               <Button type="submit" variant="outlined">Add</Button>
             </Box>

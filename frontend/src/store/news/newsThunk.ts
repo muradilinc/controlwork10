@@ -1,11 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { News } from '../../types';
+import { News, NewsState } from '../../types';
 import axiosApi from '../../axiosApi';
 
-export const createNews = createAsyncThunk<void, News>(
+export const createNews = createAsyncThunk<void, NewsState>(
   'news/createNews',
   async (news) => {
-    await axiosApi.post('/news', news);
+    const formdata = new FormData();
+    formdata.append('title', news.title);
+    formdata.append('description', news.description);
+    if (news.image) {
+      formdata.append('image', news.image);
+    }
+    await axiosApi.post('/news', formdata);
   },
 );
 

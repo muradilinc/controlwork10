@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getNews } from '../../store/news/newsThunk';
 import { selectNews } from '../../store/news/newsSlice';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import NewItem from '../../components/newItem/newItem';
+import { Link } from 'react-router-dom';
 
 const NewsPage = () => {
   const dispatch = useAppDispatch();
@@ -24,9 +25,16 @@ const NewsPage = () => {
         <Typography variant="h4">
           Posts
         </Typography>
-        <Button variant="contained">
+        <Link to='/form' style={{
+          background: 'blue',
+          padding: '5px 15px',
+          borderRadius: '5px',
+          textDecoration: 'none',
+          color: 'white',
+          fontSize: '22px',
+        }}>
           Add new post
-        </Button>
+        </Link>
       </Box>
       <Box sx={{
         display: 'flex',

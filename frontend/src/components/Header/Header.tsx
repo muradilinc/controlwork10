@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -8,7 +9,12 @@ const Header = () => {
       }}>
         <Container maxWidth="xl">
           <Typography variant="h4">
-            News
+            <Link style={{
+              textDecoration: 'none',
+              color: 'black',
+            }} to='/'>
+              News
+            </Link>
           </Typography>
         </Container>
       </Box>

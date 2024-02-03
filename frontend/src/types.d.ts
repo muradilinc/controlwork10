@@ -6,6 +6,12 @@ export interface News {
   createdAt: string;
 }
 
+export interface NewsState {
+  title: string;
+  description: string;
+  image: File | null;
+}
+
 export interface Comment {
   id: number;
   news_id: number;

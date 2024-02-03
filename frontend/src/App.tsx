@@ -4,6 +4,7 @@ import NotFoundPage from './pages/NotFoundPage/notFoundPage';
 import NewItemPage from './pages/NewItemPage/NewItemPage';
 import { Container } from '@mui/material';
 import Header from './components/Header/Header';
+import NewsForm from './components/NewsForm/NewsForm';
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path={'/'} element={<NewsPage/>}/>
           <Route path={'/news/:id'} element={<NewItemPage/>}/>
+          <Route path={'/form'} element={<NewsForm/>}/>
           <Route path={'*'} element={<NotFoundPage/>}/>
         </Routes>
       </Container>
