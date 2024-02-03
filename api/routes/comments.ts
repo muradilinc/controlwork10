@@ -13,7 +13,6 @@ commentsRouter.post('/', async (req, res, next) => {
       text: req.body.text,
     };
 
-    console.log(comment);
     const [results] = await mysqlDb.getConnection().query(
       'INSERT INTO comments (news_id, author, text) VALUES (?, IFNULL(?, \'Anonimus\'), ?)',
       [comment.newsId, comment.author, comment.text],

@@ -14,7 +14,9 @@ export interface Comment {
 }
 
 export interface NewComment {
-  newId: number,
+  newsId: number,
   author: string | null,
   text: string;
 }
+
+export type NewCommentState = Omit<NewComment, 'newsId'>;
