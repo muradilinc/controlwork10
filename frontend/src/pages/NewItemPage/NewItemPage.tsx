@@ -18,7 +18,7 @@ const NewItemPage = () => {
   const newsItem = useAppSelector(selectSingleNews);
   const comments = useAppSelector(selectComments);
   const [comment, setComment] = useState<NewCommentState>({
-    author: null,
+    author: '',
     text: '',
   });
 
