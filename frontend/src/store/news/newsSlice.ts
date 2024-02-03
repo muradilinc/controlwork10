@@ -1,5 +1,5 @@
 import { News } from '../../types';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getNews } from './newsThunk';
 
 interface NewsState {
@@ -20,7 +20,7 @@ export const newsSlice = createSlice({
     builder.addCase(getNews.pending, (state) => {
       state.getNewsLoading = true;
     });
-    builder.addCase(getNews.fulfilled, (state, {payload: items}) => {
+    builder.addCase(getNews.fulfilled, (state, {payload: items}: PayloadAction<News[]>) => {
       state.getNewsLoading = false;
       state.items = items;
     });
