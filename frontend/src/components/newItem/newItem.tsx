@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../app/hooks';
 import { deleteNews, getNews } from '../../store/news/newsThunk';
+import placeholder from '../../assets/placeholder.png';
 
 interface Props {
   newItem: News;
@@ -27,7 +28,7 @@ const NewItem: React.FC<Props> = ({newItem}) => {
     }}>
       <img
         height="150"
-        src={BASE_URL + '/' + newItem.image}
+        src={newItem.image ? BASE_URL + '/' + newItem.image : placeholder}
         alt="image"
       />
       <Box sx={{
