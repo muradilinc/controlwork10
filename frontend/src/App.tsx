@@ -1,18 +1,16 @@
-import { useEffect } from 'react';
-import { useAppDispatch } from './app/hooks';
-import { getNews } from './store/news/newsThunk';
+import { Route, Routes } from 'react-router-dom';
+import NewsPage from './pages/NewsPage/NewsPage';
+import NotFoundPage from './pages/NotFoundPage/notFoundPage';
 
 const App = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getNews());
-  }, [dispatch]);
 
   return (
-    <div>
-      <h1>news</h1>
-    </div>
+    <>
+     <Routes>
+       <Route path={'/'} element={<NewsPage/>}/>
+       <Route path={'*'} element={<NotFoundPage/>}/>
+     </Routes>
+    </>
   );
 };
 
